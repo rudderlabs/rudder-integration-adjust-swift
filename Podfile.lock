@@ -1,0 +1,32 @@
+PODS:
+  - Adjust (4.29.7):
+    - Adjust/Core (= 4.29.7)
+  - Adjust/Core (4.29.7)
+  - RudderAdjust (1.0.0):
+    - Adjust (= 4.29.7)
+    - RudderStack (~> 1.0)
+  - RudderStack (1.0.0)
+
+DEPENDENCIES:
+  - Adjust (= 4.29.7)
+  - RudderAdjust (from `.`)
+  - RudderStack (from `~/Documents/Rudder/RudderStack-Cocoa/`)
+
+SPEC REPOS:
+  trunk:
+    - Adjust
+
+EXTERNAL SOURCES:
+  RudderAdjust:
+    :path: "."
+  RudderStack:
+    :path: "~/Documents/Rudder/RudderStack-Cocoa/"
+
+SPEC CHECKSUMS:
+  Adjust: 91a06a01e4bb35b432e26b5d5bb8995b95fc381c
+  RudderAdjust: ff1e53ccba4e53cb2c1bb525e93d501b1f68c748
+  RudderStack: 705069efa869eadfe3a5aee0300dd38fa20cfbeb
+
+PODFILE CHECKSUM: 60870f842a56f7858bb973f20e97997d15d57611
+
+COCOAPODS: 1.11.2

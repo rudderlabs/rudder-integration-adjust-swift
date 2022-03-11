@@ -1,43 +1,33 @@
-<p align="center">
-  <a href="https://rudderstack.com/">
-    <img src="https://user-images.githubusercontent.com/59817155/121357083-1c571300-c94f-11eb-8cc7-ce6df13855c9.png">
-  </a>
-</p>
+# What is RudderStack?
 
-<p align="center"><b>The Customer Data Platform for Developers</b></p>
+[RudderStack](https://rudderstack.com/) is a **customer data pipeline** tool for collecting, routing and processing data from your websites, apps, cloud tools, and data warehouse.
 
-<p align="center">
-  <b>
-    <a href="https://rudderstack.com">Website</a>
-    ·
-    <a href="">Documentation</a>
-    ·
-    <a href="https://rudderstack.com/join-rudderstack-slack-community">Community Slack</a>
-  </b>
-</p>
+More information on RudderStack can be found [here](https://github.com/rudderlabs/rudder-server).
 
----
+## Getting Started with the RudderStack iOS SDK for Adjust
 
-# \*\*Repo Name\*\*
+1. Add [Adjust](https://www.adjust.com) as a destination in the [Dashboard](https://app.rudderstack.com/) and define ```appToken``` and ```eventMapping```
 
-\*\*Repo description\*\*
+2. RudderAdjust is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
 
-## Overview
+```ruby
+pod 'RudderAdjust'
+```
 
-\*\*Describe what the software does.\*\*
+## Initialize ```RSClient```
 
-## Features
+Put this code in your ```AppDelegate.m``` file under the method ```didFinishLaunchingWithOptions```
+```
+RSConfig *config = [[RSConfig alloc] initWithWriteKey:WRITE_KEY];
+[config dataPlaneURL:DATA_PLANE_URL];
+RSClient *client = [[RSClient alloc] initWithConfig:config];
+[client addWithDestination:[[RudderAdjustDestination alloc] init]];
+```
 
-\*\*Describe the key features, if necessary.\*\*
+## Send Events
 
-## Getting started
+Follow the steps from the [documentation](https://docs.rudderstack.com/destinations/adjust) to send the events.
 
-\*\*Describe how to use the software.\*\*
+## Contact Us
 
-## Contribute
-
-We would love to see you contribute to RudderStack. Get more information on how to contribute [**here**](CONTRIBUTING.md).
-
-## License
-
-The RudderStack \*\*software name\*\* is released under the [**MIT License**](https://opensource.org/licenses/MIT).
+If you come across any issues while configuring or using this SDK, please feel free to start a conversation on our [Slack](https://resources.rudderstack.com/join-rudderstack-slack) channel. We will be happy to help you.
