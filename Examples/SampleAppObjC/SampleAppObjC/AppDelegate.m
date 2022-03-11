@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
-//  SampleiOSObjC
+//  SampleAppObjC
 //
-//  Created by Pallab Maiti on 15/11/21.
+//  Created by Pallab Maiti on 11/03/22.
 //
 
 #import "AppDelegate.h"
@@ -19,11 +19,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    NSString *DATA_PLANE_URL = @"https://rudderstacbumvdrexzj.dataplane.rudderstack.com";
-    NSString *WRITE_KEY = @"203EnCjvGV6qhvrcaz7MyWiQmJx";
-    
-    // Override point for customization after application launch.
-    
     RSConfig *config = [[RSConfig alloc] initWithWriteKey:@"1wvsoF3Kx2SczQNlx1dvcqW9ODW"];
     [config dataPlaneURL:@"https://rudderstacz.dataplane.rudderstack.com"];
     [config loglevel:RSLogLevelDebug];
@@ -32,33 +27,8 @@
     
     RSClient *client = [[RSClient alloc] initWithConfig:config];
     
-//    RSOption *option = [[RSOption alloc] init];
-//    [option putIntegration:@"Firebase" isEnabled:NO];
-//    [client setOption:option];
-    
-    //[client addWithPlugin:[[RSFirebaseDestination alloc] init]];
     [client addWithDestination:[[RudderAdjustDestination alloc] init]];
     [client track:@"Track 1" properties:NULL option:NULL];
-    
-    /*
-     let config: RSConfig = RSConfig(writeKey: "1wvsoF3Kx2SczQNlx1dvcqW9ODW")
-         .dataPlaneURL("https://rudderstacz.dataplane.rudderstack.com")
-         .loglevel(.debug)
-         .trackLifecycleEvents(false)
-         .recordScreenViews(true)
-     
-     client = RSClient(config: config)
-
-     */
-    
-    
-    
-//    RSConfig *builder = [[RSConfig alloc] init];
-//    [builder withDataPlaneUrl:DATA_PLANE_URL];
-//    [builder withFactory:[RudderFirebaseFactory instance]];
-//    [builder withLoglevel:RSLogLevelDebug];
-//    [RSClient getInstance:WRITE_KEY config:builder];
-
     return YES;
 }
 

@@ -5,7 +5,10 @@
       location = "group:RudderAdjust.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Examples/SampleiOSObjC/SampleiOSObjC.xcodeproj">
+      location = "group:Examples/SampleAppObjC/SampleAppObjC.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Examples/SampleAppSwift/SampleAppSwift.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

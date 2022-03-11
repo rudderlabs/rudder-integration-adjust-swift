@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ED277FAB27424124002A8FEA"
-               BuildableName = "SampleiOSObjC.app"
-               BlueprintName = "SampleiOSObjC"
-               ReferencedContainer = "container:SampleiOSObjC.xcodeproj">
+               BlueprintIdentifier = "EDB7217E27DB4F70000EE8C4"
+               BuildableName = "SampleAppObjC.app"
+               BlueprintName = "SampleAppObjC"
+               ReferencedContainer = "container:SampleAppObjC.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,18 +44,12 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ED277FAB27424124002A8FEA"
-            BuildableName = "SampleiOSObjC.app"
-            BlueprintName = "SampleiOSObjC"
-            ReferencedContainer = "container:SampleiOSObjC.xcodeproj">
+            BlueprintIdentifier = "EDB7217E27DB4F70000EE8C4"
+            BuildableName = "SampleAppObjC.app"
+            BlueprintName = "SampleAppObjC"
+            ReferencedContainer = "container:SampleAppObjC.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-FIRAnalyticsDebugEnabled"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -67,10 +61,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ED277FAB27424124002A8FEA"
-            BuildableName = "SampleiOSObjC.app"
-            BlueprintName = "SampleiOSObjC"
-            ReferencedContainer = "container:SampleiOSObjC.xcodeproj">
+            BlueprintIdentifier = "EDB7217E27DB4F70000EE8C4"
+            BuildableName = "SampleAppObjC.app"
+            BlueprintName = "SampleAppObjC"
+            ReferencedContainer = "container:SampleAppObjC.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

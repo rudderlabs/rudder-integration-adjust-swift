@@ -41,7 +41,7 @@ class RSAdjustDestination: RSDestinationPlugin {
                         delayTime = Double(delay)
                     }
                     let adjustConfig = ADJConfig(appToken: appToken, environment: ADJEnvironmentProduction)                    
-                    adjustConfig?.logLevel =  RSAdjustDestination.logLevel(client?.configuration.logLevel ?? .none)
+                    adjustConfig?.logLevel = logLevel(client?.configuration.logLevel ?? .none)
                     adjustConfig?.eventBufferingEnabled = true
                     if delayTime > 0 {
                         adjustConfig?.delayStart = delayTime
@@ -65,27 +65,25 @@ class RSAdjustDestination: RSDestinationPlugin {
     }
     
     func track(message: TrackMessage) -> TrackMessage? {
-        if let event = message.event {
-            if let eventToken = customMappings?[event] {
-                if let anonymousId = message.anonymousId {
-                    adjust?.addSessionPartnerParameter("anonymousId", value: anonymousId)
-                }
-                if let userId = message.userId {
-                    adjust?.addSessionPartnerParameter("userId", value: userId)
-                }
-                let event = ADJEvent(eventToken: eventToken)
-                if let properties = message.properties {
-                    for key in properties.keys {
-                        if let value = properties[key] as? String {
-                            event?.addCallbackParameter(key, value: value)
-                        }
-                    }
-                    if let revenue = properties["revenue"] as? Int, let currency = properties["currency"] as? String {
-                        event?.setRevenue(Double(revenue), currency: currency)
-                    }
-                }
-                adjust?.trackEvent(event)
+        if let eventToken = customMappings?[message.event] {
+            if let anonymousId = message.anonymousId {
+                adjust?.addSessionPartnerParameter("anonymousId", value: anonymousId)
             }
+            if let userId = message.userId {
+                adjust?.addSessionPartnerParameter("userId", value: userId)
+            }
+            let event = ADJEvent(eventToken: eventToken)
+            if let properties = message.properties {
+                for key in properties.keys {
+                    if let value = properties[key] as? String {
+                        event?.addCallbackParameter(key, value: value)
+                    }
+                }
+                if let revenue = properties["revenue"] as? Int, let currency = properties["currency"] as? String {
+                    event?.setRevenue(Double(revenue), currency: currency)
+                }
+            }
+            adjust?.trackEvent(event)
         }
         return message
     }
@@ -109,7 +107,7 @@ class RSAdjustDestination: RSDestinationPlugin {
 // MARK: - Support methods
 
 extension RSAdjustDestination {
-    static func logLevel(_ logLevel: RSLogLevel) -> ADJLogLevel {
+    func logLevel(_ logLevel: RSLogLevel) -> ADJLogLevel {
         switch logLevel {
         case .verbose:
             return ADJLogLevelVerbose
