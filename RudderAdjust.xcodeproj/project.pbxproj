@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D1BD66D10DDFE12A44B71A3F /* Pods_RudderAdjust.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 873FB59B1B3829191A420A5C /* Pods_RudderAdjust.framework */; };
+		A5425FC6FD744102C14D4481 /* Pods_RudderAdjust.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94DE35C6A8B835570A28052F /* Pods_RudderAdjust.framework */; };
 		ED2A28F82770570400646788 /* RudderAdjust.h in Headers */ = {isa = PBXBuildFile; fileRef = ED2A28F72770570400646788 /* RudderAdjust.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EDF68FE727D1FD620005AAC6 /* RSAdjustDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF68FE627D1FD620005AAC6 /* RSAdjustDestination.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		835E042D14FD1B84D29AEE49 /* Pods-RudderAdjust.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RudderAdjust.debug.xcconfig"; path = "Target Support Files/Pods-RudderAdjust/Pods-RudderAdjust.debug.xcconfig"; sourceTree = "<group>"; };
-		873FB59B1B3829191A420A5C /* Pods_RudderAdjust.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RudderAdjust.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		886E3C692361972D0A0BB5D7 /* Pods-RudderAdjust.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RudderAdjust.release.xcconfig"; path = "Target Support Files/Pods-RudderAdjust/Pods-RudderAdjust.release.xcconfig"; sourceTree = "<group>"; };
+		05A3402D55A92C0171E87938 /* Pods-RudderAdjust.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RudderAdjust.debug.xcconfig"; path = "Target Support Files/Pods-RudderAdjust/Pods-RudderAdjust.debug.xcconfig"; sourceTree = "<group>"; };
+		94DE35C6A8B835570A28052F /* Pods_RudderAdjust.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RudderAdjust.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2A5A990C277719919894C9F /* Pods-RudderAdjust.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RudderAdjust.release.xcconfig"; path = "Target Support Files/Pods-RudderAdjust/Pods-RudderAdjust.release.xcconfig"; sourceTree = "<group>"; };
 		ED2A28EB2770560400646788 /* RudderAdjust.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RudderAdjust.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2A28F72770570400646788 /* RudderAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RudderAdjust.h; sourceTree = "<group>"; };
 		ED2A28FA2770591E00646788 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		ED2A28FC2770591E00646788 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		ED2A28FD2770591E00646788 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		EDC132B127D9DBF400AFD833 /* RudderAdjust.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = RudderAdjust.podspec; sourceTree = "<group>"; };
+		EDC132B127D9DBF400AFD833 /* RudderAdjust.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = RudderAdjust.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EDF68FE627D1FD620005AAC6 /* RSAdjustDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSAdjustDestination.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -30,28 +30,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1BD66D10DDFE12A44B71A3F /* Pods_RudderAdjust.framework in Frameworks */,
+				A5425FC6FD744102C14D4481 /* Pods_RudderAdjust.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07CE6F48A154074014F6E52B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				873FB59B1B3829191A420A5C /* Pods_RudderAdjust.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		208F25C796D8593BF8DAB48E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				835E042D14FD1B84D29AEE49 /* Pods-RudderAdjust.debug.xcconfig */,
-				886E3C692361972D0A0BB5D7 /* Pods-RudderAdjust.release.xcconfig */,
+				05A3402D55A92C0171E87938 /* Pods-RudderAdjust.debug.xcconfig */,
+				C2A5A990C277719919894C9F /* Pods-RudderAdjust.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		AD98C686D31696FDAEC46975 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94DE35C6A8B835570A28052F /* Pods_RudderAdjust.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		ED2A28E12770560400646788 = {
@@ -64,7 +64,7 @@
 				ED2A28F52770570400646788 /* Sources */,
 				ED2A28EC2770560400646788 /* Products */,
 				208F25C796D8593BF8DAB48E /* Pods */,
-				07CE6F48A154074014F6E52B /* Frameworks */,
+				AD98C686D31696FDAEC46975 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,7 +119,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED2A28F22770560400646788 /* Build configuration list for PBXNativeTarget "RudderAdjust" */;
 			buildPhases = (
-				2DB833B0952379E6C4FE439A /* [CP] Check Pods Manifest.lock */,
+				629FC950ED2100B57E9F8742 /* [CP] Check Pods Manifest.lock */,
 				ED2A28E62770560400646788 /* Headers */,
 				ED2A28E72770560400646788 /* Sources */,
 				ED2A28E82770560400646788 /* Frameworks */,
@@ -178,7 +178,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2DB833B0952379E6C4FE439A /* [CP] Check Pods Manifest.lock */ = {
+		629FC950ED2100B57E9F8742 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -266,7 +266,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -324,7 +324,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -338,8 +338,9 @@
 		};
 		ED2A28F32770560400646788 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 835E042D14FD1B84D29AEE49 /* Pods-RudderAdjust.debug.xcconfig */;
+			baseConfigurationReference = 05A3402D55A92C0171E87938 /* Pods-RudderAdjust.debug.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -351,7 +352,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -370,8 +371,9 @@
 		};
 		ED2A28F42770560400646788 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 886E3C692361972D0A0BB5D7 /* Pods-RudderAdjust.release.xcconfig */;
+			baseConfigurationReference = C2A5A990C277719919894C9F /* Pods-RudderAdjust.release.xcconfig */;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -383,7 +385,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

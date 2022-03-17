@@ -74,8 +74,8 @@ class RSAdjustDestination: RSDestinationPlugin {
             }
             let event = ADJEvent(eventToken: eventToken)
             if let properties = message.properties {
-                for key in properties.keys {
-                    if let value = properties[key] as? String {
+                for (key, value) in properties {
+                    if let value = value as? String {
                         event?.addCallbackParameter(key, value: value)
                     }
                 }

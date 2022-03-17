@@ -29,6 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         client?.add(destination: RudderAdjustDestination())
         client?.track("Track 1")
         
+        client?.identify("test_user_id")
+        
+        client?.track("daily_rewards_claim")
+        client?.track("level_up")
+        client?.track("revenue")
+        
         return true
     }
 
