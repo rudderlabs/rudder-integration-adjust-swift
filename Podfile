@@ -1,10 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
 workspace 'RudderAdjust.xcworkspace'
 use_frameworks!
 inhibit_all_warnings!
 platform :ios, '13.0'
 
 def shared_pods
-    pod 'RudderStack', :path => '~/Documents/Rudder/RudderStack-Cocoa/'
+    pod 'RudderStack', :path => '~/Documents/Rudder/RudderStack-Swift/'
 end
 
 target 'RudderAdjust' do
