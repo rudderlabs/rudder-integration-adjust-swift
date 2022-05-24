@@ -19,27 +19,19 @@ class RSAdjustDestination: RSDestinationPlugin {
         
     func update(serverConfig: RSServerConfig, type: UpdateType) {
         guard type == .initial else { return }
-        guard let adjustConfig: AdjustConfig = serverConfig.getConfig(forPlugin: self) else {
+        guard let adjustConfig: RudderAdjustConfig = serverConfig.getConfig(forPlugin: self) else {
             return
         }
-        if let customMappings = adjustConfig.customMappings {
-            var tempDict = [String: String]()
-            for customMapping in customMappings {
-                if let from = customMapping["from"], let to = customMapping["to"] {
-                    tempDict[from] = to
-                }
-            }
-            self.customMappings = tempDict
-        }
+        self.customMappings = adjustConfig.customMappings
         if !adjustConfig.appToken.isEmpty {
             var delayTime: Double = 0.0
-            if var delay = Int(adjustConfig.delay) {
+            if var delay = Double(adjustConfig.delay) {
                 if delay < 0 {
                     delay = 0
                 } else if delay > 10 {
                     delay = 10
                 }
-                delayTime = Double(delay)
+                delayTime = delay
             }
             let adjustConfig = ADJConfig(appToken: adjustConfig.appToken, environment: ADJEnvironmentProduction)
             adjustConfig?.logLevel = logLevel(client?.configuration?.logLevel ?? .none)
@@ -58,19 +50,13 @@ class RSAdjustDestination: RSDestinationPlugin {
         }
         
         if let userId = message.userId {
-            adjust?.addSessionPartnerParameter("userId", value: userId)
+            adjust?.addSessionPartnerParameter(RSKeys.Identify.userId, value: userId)
         }
         return message
     }
     
     func track(message: TrackMessage) -> TrackMessage? {
         if let eventToken = customMappings?[message.event] {
-            if let anonymousId = message.anonymousId {
-                adjust?.addSessionPartnerParameter("anonymousId", value: anonymousId)
-            }
-            if let userId = message.userId {
-                adjust?.addSessionPartnerParameter("userId", value: userId)
-            }
             let event = ADJEvent(eventToken: eventToken)
             if let properties = message.properties {
                 for (key, value) in properties {
@@ -78,7 +64,7 @@ class RSAdjustDestination: RSDestinationPlugin {
                         event?.addCallbackParameter(key, value: value)
                     }
                 }
-                if let revenue = properties["revenue"] as? Int, let currency = properties["currency"] as? String {
+                if let revenue = properties[RSKeys.Ecommerce.revenue] as? Double, let currency = properties[RSKeys.Ecommerce.currency] as? String {
                     event?.setRevenue(Double(revenue), currency: currency)
                 }
             }
@@ -87,19 +73,8 @@ class RSAdjustDestination: RSDestinationPlugin {
         return message
     }
     
-    func screen(message: ScreenMessage) -> ScreenMessage? {
-        client?.log(message: "MessageType is not supported", logLevel: .warning)
-        return message
-    }
-    
-    func group(message: GroupMessage) -> GroupMessage? {
-        client?.log(message: "MessageType is not supported", logLevel: .warning)
-        return message
-    }
-    
-    func alias(message: AliasMessage) -> AliasMessage? {
-        client?.log(message: "MessageType is not supported", logLevel: .warning)
-        return message
+    func reset() {
+        Adjust.resetSessionPartnerParameters()
     }
 }
 
@@ -124,13 +99,26 @@ extension RSAdjustDestination {
     }
 }
 
-struct AdjustConfig: Codable {
+struct RudderAdjustConfig: Codable {
+    struct RSDictionary: Codable {
+        let to: String?
+        let from: String?
+    }
+    
     private let _appToken: String?
     var appToken: String {
         return _appToken ?? ""
     }
     
-    let customMappings: [[String: String]]?
+    private var _customMappings: [RSDictionary]?
+    var customMappings: [String: String] {
+        var customMappingsDict = [String: String]()
+        if let from: [String] = _customMappings?.map({String($0.from ?? "") }),
+           let to: [String] = _customMappings?.map({String($0.to ?? "") }) {
+            customMappingsDict = Dictionary(uniqueKeysWithValues: zip(from, to))
+        }
+        return customMappingsDict
+    }
     
     private let _delay: String?
     var delay: String {
@@ -139,7 +127,7 @@ struct AdjustConfig: Codable {
     
     enum CodingKeys: String, CodingKey {
         case _appToken = "appToken"
-        case customMappings = "customMappings"
+        case _customMappings = "customMappings"
         case _delay = "delay"
     }
 }

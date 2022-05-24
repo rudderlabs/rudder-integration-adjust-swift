@@ -14,9 +14,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - Rudder
-  trunk:
     - Adjust
+    - Rudder
 
 EXTERNAL SOURCES:
   RudderAdjust:
