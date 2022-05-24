@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import RudderStack
+import Rudder
 import Adjust
 
 class RSAdjustDestination: RSDestinationPlugin {
@@ -19,37 +19,36 @@ class RSAdjustDestination: RSDestinationPlugin {
         
     func update(serverConfig: RSServerConfig, type: UpdateType) {
         guard type == .initial else { return }
-        if let destinations = serverConfig.destinations {
-            if let destination = destinations.first(where: { $0.destinationDefinition?.displayName == self.key }) {
-                if let customMappings = destination.config?.dictionaryValue?["customMappings"] as? [[String: String]] {
-                    var tempDict = [String: String]()
-                    for customMapping in customMappings {
-                        if let from = customMapping["from"], let to = customMapping["to"] {
-                            tempDict[from] = to
-                        }
-                    }
-                    self.customMappings = tempDict
-                }
-                if let appToken = destination.config?.dictionaryValue?["appToken"] as? String {
-                    var delayTime: Double = 0.0
-                    if var delay = destination.config?.dictionaryValue?["delay"] as? Int {
-                        if delay < 0 {
-                            delay = 0
-                        } else if delay > 10 {
-                            delay = 10
-                        }
-                        delayTime = Double(delay)
-                    }
-                    let adjustConfig = ADJConfig(appToken: appToken, environment: ADJEnvironmentProduction)                    
-                    adjustConfig?.logLevel = logLevel(client?.configuration.logLevel ?? .none)
-                    adjustConfig?.eventBufferingEnabled = true
-                    if delayTime > 0 {
-                        adjustConfig?.delayStart = delayTime
-                    }
-                    adjust = Adjust()
-                    adjust?.appDidLaunch(adjustConfig)
+        guard let adjustConfig: AdjustConfig = serverConfig.getConfig(forPlugin: self) else {
+            return
+        }
+        if let customMappings = adjustConfig.customMappings {
+            var tempDict = [String: String]()
+            for customMapping in customMappings {
+                if let from = customMapping["from"], let to = customMapping["to"] {
+                    tempDict[from] = to
                 }
             }
+            self.customMappings = tempDict
+        }
+        if !adjustConfig.appToken.isEmpty {
+            var delayTime: Double = 0.0
+            if var delay = Int(adjustConfig.delay) {
+                if delay < 0 {
+                    delay = 0
+                } else if delay > 10 {
+                    delay = 10
+                }
+                delayTime = Double(delay)
+            }
+            let adjustConfig = ADJConfig(appToken: adjustConfig.appToken, environment: ADJEnvironmentProduction)
+            adjustConfig?.logLevel = logLevel(client?.configuration?.logLevel ?? .none)
+            adjustConfig?.eventBufferingEnabled = true
+            if delayTime > 0 {
+                adjustConfig?.delayStart = delayTime
+            }
+            adjust = Adjust()
+            adjust?.appDidLaunch(adjustConfig)
         }
     }
     
@@ -122,6 +121,26 @@ extension RSAdjustDestination {
         case .none:
             return ADJLogLevelVerbose
         }
+    }
+}
+
+struct AdjustConfig: Codable {
+    private let _appToken: String?
+    var appToken: String {
+        return _appToken ?? ""
+    }
+    
+    let customMappings: [[String: String]]?
+    
+    private let _delay: String?
+    var delay: String {
+        return _delay ?? ""
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case _appToken = "appToken"
+        case customMappings = "customMappings"
+        case _delay = "delay"
     }
 }
 

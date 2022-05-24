@@ -2,31 +2,31 @@ PODS:
   - Adjust (4.29.7):
     - Adjust/Core (= 4.29.7)
   - Adjust/Core (4.29.7)
+  - Rudder (2.0.1)
   - RudderAdjust (1.0.0):
     - Adjust (= 4.29.7)
-    - RudderStack
-  - RudderStack (1.0.0-beta.3)
+    - Rudder (~> 2.0.0)
 
 DEPENDENCIES:
   - Adjust (= 4.29.7)
+  - Rudder
   - RudderAdjust (from `.`)
-  - RudderStack (from `~/Documents/Rudder/RudderStack-Swift/`)
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Rudder
   trunk:
     - Adjust
 
 EXTERNAL SOURCES:
   RudderAdjust:
     :path: "."
-  RudderStack:
-    :path: "~/Documents/Rudder/RudderStack-Swift/"
 
 SPEC CHECKSUMS:
   Adjust: 91a06a01e4bb35b432e26b5d5bb8995b95fc381c
-  RudderAdjust: e301c7c3c7a61d880bf974708d033608f6774fca
-  RudderStack: 7e120a03736b0021f56a504c0966b95ffa9f5bcb
+  Rudder: e16a7f96f253e1d9e290a1fe544570e4784fce68
+  RudderAdjust: 6da2020d6f9a3ff819ba578d8c762d2f028299a8
 
-PODFILE CHECKSUM: d27f4845e384dc28f7833dac7bc48038bb6aeb0e
+PODFILE CHECKSUM: abc9e1370de74b92fa50f76364213522c27f5ede
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3
