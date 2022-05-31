@@ -7,8 +7,8 @@
 <p align="center"><b>The Customer Data Platform for Developers</b></p>
 
 <p align="center">
-  <a href="https://cocoapods.org/pods/RudderSingular">
-    <img src="https://img.shields.io/cocoapods/v/RudderSingular.svg?style=flat">
+  <a href="https://cocoapods.org/pods/RudderAdjust">
+    <img src="https://img.shields.io/cocoapods/v/RudderAdjust.svg?style=flat">
     </a>
 </p>
 
@@ -25,7 +25,7 @@
 ---
 # Integrating RudderStack iOS SDK with Adjust
 
-This repository contains the resources and assets required to integrate the [RudderStack iOS SDK](https://www.rudderstack.com/docs/stream-sources/rudderstack-sdk-integration-guides/rudderstack-ios-sdk/) with [Adjust](https://www.adjust.com/).
+This repository contains the resources and assets required to integrate the [RudderStack iOS SDK](https://www.rudderstack.com/docs/stream-sources/rudderstack-sdk-integration-guides/rudderstack-ios-sdk/ios-v2/) with [Adjust](https://www.adjust.com/).
 
 For more information on configuring Adjust as a destination in RudderStack and the supported events and their mappings, refer to the [Adjust documentation](https://www.rudderstack.com/docs/destinations/attribution/adjust/).
 
@@ -59,7 +59,7 @@ import RudderAdjust
 
 ## Step 3: Initialize the RudderStack client (`RSClient`)
 
-Place the following code in your `AppDelegate` file under the `didFinishLaunchingWithOptions` method.
+Place the following in your `AppDelegate` under the `didFinishLaunchingWithOptions` method.
 
 ### Swift
 
@@ -94,4 +94,4 @@ RudderStack is the **customer data platform** for developers. With RudderStack, 
 
 ## Contact us
 
-For queries on configuring or using this integration, [contact us](mailto:%20docs@rudderstack.com) or start a conversation in our [Slack](https://rudderstack.com/join-rudderstack-slack-community) community.
+For queries on configuring or using this integration, start a conversation in our [Slack](https://rudderstack.com/join-rudderstack-slack-community) community.
