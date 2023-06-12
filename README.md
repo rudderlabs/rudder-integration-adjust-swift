@@ -38,7 +38,7 @@ For more information on configuring Adjust as a destination in RudderStack and t
 2. `RudderAdjust` is available through [CocoaPods](https://cocoapods.org). To install it, add the following line to your `Podfile`:
 
 ```ruby
-pod 'RudderAdjust', '~> 1.0.0'
+pod 'RudderAdjust', '~> 1.1.0'
 ```
 
 3. Run the `pod install` command.
